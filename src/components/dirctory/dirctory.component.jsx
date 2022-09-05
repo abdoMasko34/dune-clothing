@@ -12,28 +12,28 @@ class Dirctory extends Component {
     this.state = {
       menu: [
         {
-          title: "HATS",
+          title: "hats",
           img: HatImage,
           id: 1,
         },
         {
-          title: "SNAKERS",
+          title: "sneakers",
           img: JacketImg,
           id: 2,
         },
         {
-          title: "JACKETS",
+          title: "jackets",
           img: SneakerImg,
           id: 3,
         },
         {
-          title: "MAN",
+          title: "man",
           img: MenImg,
           size: "large",
           id: 4,
         },
         {
-          title: "WOMEN",
+          title: "women",
           img: WomenImg,
           size: "large",
           id: 5,
