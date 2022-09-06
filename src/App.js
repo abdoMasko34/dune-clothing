@@ -1,3 +1,4 @@
+import Header from "./components/header/header.component";
 import HomePage from "./components/homePage/homePage.components";
 import ShopPage from "./components/shop/shop-page.component";
 // import HatsPage from "./components/hatsPage/hatsPage.component";
@@ -10,6 +11,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         {/* <Route path="/hats" element={<HatsPage />} />

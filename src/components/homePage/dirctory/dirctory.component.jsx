@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import MenuItem from "./menu-item";
 import "./dirctory.style.scss";
-import HatImage from "../../imgs/hat.jpg";
-import JacketImg from "../../imgs/jackets.jpg";
-import SneakerImg from "../../imgs/sneakers.jpg";
-import MenImg from "../../imgs/men.jpg";
-import WomenImg from "../../imgs/women.jpg";
+import HatImage from "../../../imgs/hat.jpg";
+import JacketImg from "../../../imgs/jackets.jpg";
+import SneakerImg from "../../../imgs/sneakers.jpg";
+import MenImg from "../../../imgs/men.jpg";
+import WomenImg from "../../../imgs/women.jpg";
 class Dirctory extends Component {
   constructor(props) {
     super(props);
