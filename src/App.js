@@ -9,7 +9,7 @@ import ShopPage from "./components/shop/shop-page.component";
 // import WomenPage from "./components/women/women.component";
 import Auth from "./components/auth/auth.component";
 
-import { auth } from "./firebase/firebase-utili";
+import { auth, createUserProfileDocument } from "./firebase/firebase-utili";
 
 import { Routes, Route } from "react-router-dom";
 class App extends Component {
@@ -21,10 +21,27 @@ class App extends Component {
   }
   unsubscribeFromAuth = null;
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
 
-      console.log(user);
+        userRef.onSnapshot((snapShot) => {
+          this.setState(
+            {
+              currentUser: {
+                id: snapShot.id,
+                ...snapShot.data(),
+              },
+            },
+            () => {
+              console.log("current user", this.state);
+            }
+          );
+          console.log(this.state);
+        });
+
+        this.setState({ currentUser: userAuth });
+      }
     });
   }
   componentWillUnmount() {
