@@ -11,7 +11,7 @@ import Auth from "./components/auth/auth.component";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase-utili";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user-actions";
 class App extends Component {
@@ -50,13 +50,21 @@ class App extends Component {
           <Route path="/man" element={<ManPage />} />
           <Route path="/women" element={<WomenPage />} /> */}
           <Route path="/shop" element={<ShopPage />} />
-          <Route path="/auth" element={<Auth />} />
+          <Route
+            path="/auth"
+            element={
+              this.props.currentUser ? <Navigate replace to="/" /> : <Auth />
+            }
+          />
         </Routes>
       </div>
     );
   }
 }
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
