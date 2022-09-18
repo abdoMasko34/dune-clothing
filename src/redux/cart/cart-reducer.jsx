@@ -2,6 +2,7 @@ import { addItemToCart } from "./cart-utils";
 const INTIAL_STATE = {
   hidden: true,
   cartItems: [],
+  totalNum: 0,
 };
 const cartReducer = (state = INTIAL_STATE, action) => {
   switch (action.type) {
