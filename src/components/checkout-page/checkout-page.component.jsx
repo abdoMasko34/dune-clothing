@@ -32,7 +32,6 @@ const CheckoutPage = ({ cartItems, total }) => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
     <div className="total">
-      heroku --version
       <span>TOTAL: ${total}</span>
     </div>
     <div className="test-warning">
