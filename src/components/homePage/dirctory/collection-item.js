@@ -1,18 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const MenuItem = ({ title, img, size }) => {
-  const navigate = useNavigate();
+const CollectionItem = ({ title, imageUrl, size, linkUrl }) => {
+  const history = useHistory();
   return (
     <div className={`${size} menu-item`}>
       <div
         style={{
-          backgroundImage: `url(${img})`,
+          backgroundImage: `url(${imageUrl})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
         className="background-image"
-        onClick={() => navigate(`/${title}`)}
+        onClick={() => history.push(`/${linkUrl}`)}
       />
       <div className="content">
         <h1 className="title">{title.toUpperCase()}</h1>
@@ -22,4 +22,4 @@ const MenuItem = ({ title, img, size }) => {
   );
 };
 
-export default MenuItem;
+export default CollectionItem;

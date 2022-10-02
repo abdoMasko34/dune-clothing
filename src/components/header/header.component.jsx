@@ -15,15 +15,11 @@ const Header = ({ currentUser, hidden }) => (
       <img src={Logo} alt="logo" />
     </Link>
     <div className="options">
-      <NavLink
-        to="/contact"
-        className="option"
-        activeClassName="active-navLink"
-      >
-        CONTACT
-      </NavLink>
-      <NavLink to="/shop" className="option" activeClassName="active">
+      <NavLink to="/shop" className="option">
         SHOP
+      </NavLink>
+      <NavLink to="/contact" className="option">
+        CONTACT
       </NavLink>
       {currentUser ? (
         <div className="option" onClick={() => auth.signOut()}>

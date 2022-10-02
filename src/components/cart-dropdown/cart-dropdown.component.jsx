@@ -5,13 +5,13 @@ import { selectCartItem } from "../../redux/cart/cart-selector";
 import { createStructuredSelector } from "reselect";
 import CustomButton from "../UI/custom-button/custom-button.component";
 import CartItem from "./cart-item/cart-item.component";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { toggleCartHidden } from "../../redux/cart/cart-actions";
 
 const CartDropdown = ({ cartItems, toggleCartHidden }) => {
-  const navigate = useNavigate();
+  const history = useHistory();
   const handleClick = () => {
-    navigate("/checkout");
+    history.push("/checkout");
     toggleCartHidden();
   };
   return (
