@@ -12,6 +12,12 @@ const shopReducer = (state = INTIAL_STATE, action) => {
         ...state,
         collection: selectCollection(state.collections, action.payload),
       };
+
+    case "UPDATE_COLLECTIONS":
+      return {
+        ...state,
+        collections: action.payload,
+      };
     default:
       return state;
   }

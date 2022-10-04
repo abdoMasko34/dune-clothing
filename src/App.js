@@ -11,6 +11,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { setCurrentUser } from "./redux/user/user-actions";
+
 class App extends Component {
   unsubscribeFromAuth = null;
   componentDidMount() {
