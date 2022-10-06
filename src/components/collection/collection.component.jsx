@@ -9,11 +9,9 @@ import "./collection.style.scss";
 const CollectionPage = ({ collection, setCollectionById }) => {
   const params = useParams();
   const paramsId = params.categoryId;
-  useEffect(() => {
-    setCollectionById(paramsId);
-  }, [params]);
+  setCollectionById(paramsId);
   const { title, items } = collection;
-  console.log(collection);
+  console.log("collection", collection);
   return (
     <div className="collection-page">
       <h2 className="title">{title}</h2>

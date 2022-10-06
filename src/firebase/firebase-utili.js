@@ -42,7 +42,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 };
 // export const addCollectionAndDocuments = async (collectionKey, objectToAdd) => {
 //   const collectionRef = firestore.collection(collectionKey);
-//   // console.log(collectionRef);
+//   console.log(collectionRef);
 //   const batch = firestore.batch();
 //   objectToAdd.forEach((obj) => {
 //     const newDocRef = collectionRef.doc();
@@ -51,19 +51,21 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 //   return await batch.commit();
 // };
 
-export const convertCollectionSnapShotToMap = (collectionSnapshot) => {
-  const transformedCollection = collectionSnapshot.docs.map((docSnapshot) => {
-    const { title, items } = docSnapshot.data();
+export const convertCollectionSnapShotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, items } = doc.data();
 
     return {
       routeName: encodeURI(title.toLowerCase()),
-      id: docSnapshot.id,
+      id: doc.id,
       title,
       items,
     };
   });
+  console.log(transformedCollection);
   return transformedCollection.reduce((acc, collection) => {
     acc[collection.title.toLowerCase()] = collection;
+    console.log(acc);
     return acc;
   }, {});
 };
