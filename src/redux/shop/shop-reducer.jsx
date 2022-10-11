@@ -1,7 +1,7 @@
-import SHOP_DATE from "./collection-data";
 import { selectCollection } from "./shop-utils";
+// import SHOP_DATA from "./collections-data";
 const INTIAL_STATE = {
-  collections: SHOP_DATE,
+  collections: [],
   collection: null,
 };
 

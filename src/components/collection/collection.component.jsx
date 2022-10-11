@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
+// import { createStructuredSelector } from "reselect";
 import { setCollectionById } from "../../redux/shop/shop-action";
+// import { selectCollection } from "../../redux/shop/shop-selector";
 import CardPreview from "../shop/collection/card-preview.component";
 
 import "./collection.style.scss";
@@ -11,7 +13,6 @@ const CollectionPage = ({ collection, setCollectionById }) => {
   const paramsId = params.categoryId;
   setCollectionById(paramsId);
   const { title, items } = collection;
-  console.log("collection", collection);
   return (
     <div className="collection-page">
       <h2 className="title">{title}</h2>

@@ -6,7 +6,9 @@ import CheckoutPage from "./components/checkout-page/checkout-page.component";
 import Auth from "./components/auth/auth.component";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase-utili";
+
 import { selectCurrentUser } from "./redux/user/user-selector";
+
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -16,6 +18,7 @@ class App extends Component {
   unsubscribeFromAuth = null;
   componentDidMount() {
     const { setCurrentUser } = this.props;
+
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
