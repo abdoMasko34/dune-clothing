@@ -22,3 +22,8 @@ export const selectCollectionId = (collectionUrlParam) =>
     [selectCollections],
     (collections) => collections[collectionUrlParam]
   );
+
+export const selectCollectionIsFetching = createSelector(
+  [selectShop],
+  (shop) => shop.isFetching
+);
